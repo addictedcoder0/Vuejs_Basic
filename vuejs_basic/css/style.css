@@ -4,3 +4,12 @@
     padding: 200px 20px;
     border:1px solid #333;
 }
+
+span {
+background: red;  
+    font-size: 30px;
+}
+
+.available span{
+    background: green;
+}

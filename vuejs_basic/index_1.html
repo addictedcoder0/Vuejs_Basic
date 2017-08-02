@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>vue js2</title>
+        <link href="css/style.css" rel="stylesheet"/>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.js"></script>
+        
+    </head>
+    <body>
+        <div id="vue-app">
+            <p>Name : {{name}}</p>
+            <p>Job : {{job}}</p>
+            <p>Age : {{age}}</p>
+            <p>CompanyUrl : <a  v-bind:href="website">Rudriyo</a></p>
+            <p>{{ greet('morning') }}</p>
+            <p v-html="htmlTag"></p>
+            <button v-on:click="age++">incrementAge</button>
+            <button v-on:click.once="age++">incrementOnce</button>
+            <!-- v-on <==> @ -->
+            <button @click="age--">decrementAge</button>
+            <button v-on:dblclick="age+=10">inc-10Years</button>
+            <button v-on:dblclick="age-=10">dec-10Years</button>
+            <!-- we can externalize the methods if it is complex -->
+            <button v-on:click="alertAge">popUp</button>
+            <br>
+           
+            <!-- this input box will trigger fn on each key press-->
+            <label>input1</label>
+            <input type="text" @keyup="keypressed" />
+            <!-- this input box will trigger fn after 'enter' is pressed-->
+            <label>input2</label>
+            <input type="text" @keyup.enter="keypressed" />
+            <!-- 2 way data binding -->
+            <label>name:</label>
+            <input type="text" v-model="name" />
+            <span>{{name}}</span>
+            
+            <div id="canvas" v-on:mousemove="updatepointer">{{x}} , {{y}}</div>
+            <a @click.prevent="clickalert" href="https://www.godaddy.com">i don't work</a>
+            
+            <h3> Computed Properties </h3>
+            <button @click="a++">add to A</button>
+            <button @click="b++">add to b</button>
+            <!-- even if we click for A , B will run automatically -->
+<!--
+            <p>a + age = {{addAgeToA()}}</p> 
+            <p>b + age = {{addAgeToB()}}</p>
+-->
+            <!-- we can prevent this by using the computed properties concept-->
+            <p>a + age = {{addAgeToA}}</p> 
+            <p>b + age = {{addAgeToB}}</p>
+        </div>
+        <script src="js/app.js"></script>
+    </body>
+</html>
